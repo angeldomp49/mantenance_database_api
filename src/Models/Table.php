@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 use \stdClass;
 
 class Table extends Model{
@@ -18,6 +19,16 @@ class Table extends Model{
     protected $fillable = [
         "name"
     ];
+
+    public function __construct(String $name){
+        Parent::__construct();
+
+        DB::transaction(function() use($name){
+            Schema::create($name, function(Blueprint $table){});
+        });
+
+        $this->name = $name;
+    }
 
     public function columns(){
         return $this->hasMany(Column::class);
@@ -48,6 +59,18 @@ class Table extends Model{
 
         $this->addColumn($column);
 
+    }
+
+    public function delete(){
+        DB::transaction(function(){
+            Schema::dropIfExists($this->name);
+        });
+
+        foreach ($this->columns as $column){
+            $column->delete();
+        }
+
+        parent::delete();
     }
 
 }

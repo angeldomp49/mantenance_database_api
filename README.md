@@ -30,7 +30,6 @@ Devuelve un modelo __Table__ al que pertenece.
 
 Crea un objeto __Column__ a partir de un objeto stdClass con los mismos atributos.
 
-
 ## Table ##
 
 ### Atributos ###
@@ -55,12 +54,10 @@ Agrega una columna a la tabla tanto en la base de datos como en el registro.
 
 Hace lo mismo que la anterior pero recibe un __stdClass__. 
 
-## TableFactory ##
+    public function __construct(String name);
 
-    public function createTable(String $name);
+Recibe el nombre de la tabla.
 
-Crea una tabla tanto en el base de datos como en el registro.
+    public function delete();
 
-        public function deleteTable(String $name);
-
-Borrar una tabla tanto en la base de datos como en el registro.
+Borra la tabla en el registro y en la base.
