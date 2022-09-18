@@ -16,6 +16,7 @@ class CreateColumnsTable extends Migration{
                 ->onUpdate("cascade")
                 ->onDelete("cascade");
 
+            $table->string("name");
             $table->string("type");
             $table->integer("size");
             $table->timestamps();

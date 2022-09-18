@@ -20,11 +20,11 @@ class Table extends Model{
         "name"
     ];
 
-    public static function create($args = []){
-        $createdTable = Parent::create($args);
+    public static function createTable($args = []){
+        $createdTable = self::create($args);
 
-        DB::transaction(function() use($args){
-            Schema::create($args["name"], function(Blueprint $table){});
+        Schema::create($args["name"], function(Blueprint $table){
+            $table->id();
         });
 
         return $createdTable;
