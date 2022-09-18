@@ -17,7 +17,8 @@ class Column extends Model{
     protected $fillable = [
         "name",
         "type",
-        "size"
+        "size",
+        "table_id"
     ];
 
     public function table(){

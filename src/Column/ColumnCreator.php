@@ -6,9 +6,13 @@ use MakechTec\XochiDigital\Mantenance\Models\Column;
 
 class ColumnCreator{
 
-    private $strategies = [
-        "string" => new StringStrategy(),
-    ];
+    private $strategies = [];
+
+    public function __construct(){
+        $this->strategies = [
+            "string" => new StringStrategy(),
+        ];
+    }
 
     public function create(Column $column){
 
