@@ -20,14 +20,14 @@ class Table extends Model{
         "name"
     ];
 
-    public function __construct(String $name){
-        Parent::__construct();
+    public static function create($args = []){
+        $createdTable = Parent::create($args);
 
-        DB::transaction(function() use($name){
-            Schema::create($name, function(Blueprint $table){});
+        DB::transaction(function() use($args){
+            Schema::create($args["name"], function(Blueprint $table){});
         });
 
-        $this->name = $name;
+        return $createdTable;
     }
 
     public function columns(){
