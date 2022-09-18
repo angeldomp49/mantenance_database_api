@@ -12,8 +12,6 @@ class Column extends Model{
 
     use HasFactory;
 
-    private ColumnCreator $columnCreator = new ColumnCreator();
-
     protected $table = 'columns';
 
     protected $fillable = [
@@ -27,7 +25,8 @@ class Column extends Model{
     }
 
     public function createInSchema(){
-        $this->columnCreator->create($this);
+        $columnCreator = new ColumnCreator();
+        $columnCreator->create($this);
     }
 
     public static function fromStdClass(stdClass $obj){
