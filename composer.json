@@ -4,7 +4,7 @@
     "description": "Mantenance API for xochi digital",
     "keywords": ["api", "xochi-digital"],
     "license": "MIT",
-    "version": "1.2.0",
+    "version": "1.2.1",
     "require": {
         "php": "^7.3|^8.0",
         "fruitcake/laravel-cors": "^2.0",
