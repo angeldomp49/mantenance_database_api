@@ -23,10 +23,7 @@
     },
     "autoload": {
         "psr-4": {
-            "App\\": "app/",
-            "Database\\Factories\\": "database/factories/",
-            "Database\\Seeders\\": "database/seeders/",
-            "MakechTec\\XochiDigital\\Mantenance\\": "tools"
+            "MakechTec\\XochiDigital\\Mantenance\\": "src"
         }
     },
     "autoload-dev": {

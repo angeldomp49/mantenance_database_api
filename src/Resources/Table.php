@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace MakechTec\XochiDigital\Mantenance\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 
